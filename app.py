@@ -4,7 +4,7 @@ import pandas as pd
 import utils.components as drc
 import utils.figures as figs
 
-df = pd.read_excel("Social Meida Dataset.xlsx")
+df = pd.read_excel("assets/Social Meida Dataset.xlsx")
 
 # calculate overall average social media usage using the updated column name
 total_usage = df["Social Media Usage (Hours/Day)"].sum()
@@ -31,7 +31,7 @@ app.layout = html.Div(
         html.Div(
             children=[
                 html.H1(
-                    "A SOCIAL MEDIA USER",
+                    "A SOCIAL USER",
                     style={
                         "margin": "5px 0",
                         "padding": "0",
@@ -183,16 +183,16 @@ app.layout = html.Div(
                 "padding": "20px"
             }
         ),
-        # Row: Two columns – Left: income chart with dropdown inside boxed container and Right: social media usage comparison line graph
+        # Row: Left: income chart with dropdown inside its boxed container; Right: social media usage comparison line graph
         html.Div(
             children=[
-                # Left column for Income Chart + Dropdown
+                # Left column for income chart + dropdown
                 html.Div(
                     children=[
                         html.Div(
                             children=[
                                 dcc.Graph(id="income-chart"),
-                                # Use the reusable dropdown from components.py
+                                # Reusable dropdown from components.py
                                 drc.chart_dropdown()
                             ],
                             style={
@@ -205,7 +205,7 @@ app.layout = html.Div(
                     ],
                     style={"width": "50%", "padding": "20px"}
                 ),
-                # Right column for Social Media Usage Comparison Line Graph
+                # Right Column for social media usage comparison line graph
                 html.Div(
                     children=[
                         html.Div(
@@ -226,7 +226,7 @@ app.layout = html.Div(
             ],
             style={"display": "flex", "width": "100%"}
         ),
-        # Bottom row: Line Graph Comparing Jobs Created and Social Media Interactions (80% width, centered)
+        # Bottom Row: line graph comparing jobs created and social media interactions
         html.Div(
             children=[
                 html.Div(
@@ -248,7 +248,7 @@ app.layout = html.Div(
     style={"margin": "0", "padding": "0"}
 )
 
-# Callback to update the income chart based on the dropdown selection
+# callback to update the income chart based on dropdown selection
 @app.callback(
     Output("income-chart", "figure"),
     Input("chart-selector", "value")

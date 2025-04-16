@@ -4,7 +4,7 @@ def chart_dropdown():
     return dcc.Dropdown(
         id="chart-selector",
         options=[
-            {"label": "Compare", "value": "bar"},
+            {"label": "Compare Incomes", "value": "bar"},
             {"label": "View Difference", "value": "slope"}
         ],
         value="bar",
